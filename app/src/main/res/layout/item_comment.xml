@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+       xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+            android:elevation="@dimen/material_card_elevation_resting"
+            app:cardCornerRadius="@dimen/material_card_corner_radius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?attr/selectableItemBackground"
+            app:cardUseCompatPadding="true">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp">
+
+            <TextView
+                    android:id="@+id/textView_comment_userName"
+                    tools:text="Username"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/material_app_bar_extended_title_text_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/textView_comment_mail"
+                    tools:text="mail@mail.mail"
+                    android:textStyle="italic"
+                    android:textSize="@dimen/material_subheader_text_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:id="@+id/textView_comment_body"
+                    tools:text="@tools:sample/lorem/random"
+                    android:textSize="@dimen/material_typography_regular_body_1_text_size"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</merge>

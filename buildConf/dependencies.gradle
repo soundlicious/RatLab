@@ -1,0 +1,112 @@
+ext {
+
+    //region Support
+    supportLib = '1.0.0'
+    constraintLib = '1.1.1'
+    supportMaterial = '1.0.0-rc01'
+    supportAnnotationExclude = {exclude group: 'androidx.annotation', module: 'annotation'}
+    //endregion
+
+    //region ArchComponent
+    roomVersion = '1.1.1'
+    archLifecycleVersion = '1.1.1'
+    //endregion
+
+    //region Rx
+    rxKotlin = "2.3.0"
+    rxAndroid = "2.1.0"
+    rxBinding = "3.0.0-alpha1"
+    //endregion
+
+    //region UI
+    materialValues = '1.1.1'
+    epoxyVersion = '3.0.0-rc1'
+    lottie = "2.8.0"
+    //endregion
+
+    //region Network
+    retrofit = "2.4.0"
+    picasso = "2.71828"
+    okhttp = "3.11.0"
+    //endregion
+
+    //region serialization
+    moshi = "1.7.0"
+    //endregion
+
+    //region Dependency Injection
+    koin = "1.0.1"
+    //endregion
+
+    //region Testing && Debug
+    timber = '4.7.1'
+    junit = '4.12'
+    runner = '1.1.0-alpha3'
+    espresso = '3.1.0-alpha3'
+    leakCanary = '1.5.4'
+    //endregion
+
+    //region dependency List
+    dependencies = [
+            [configuration: "implementation", "dependency": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin"],
+
+            [configuration: "implementation", dependency: "com.jakewharton.timber:timber:$timber"],
+
+            [configuration: "implementation", dependency: "androidx.legacy:legacy-support-v4:$supportLib"],
+            [configuration: "implementation", dependency: "androidx.legacy:legacy-support-v13:$supportLib"],
+            [configuration: "implementation", dependency: "androidx.appcompat:appcompat:$supportLib"],
+            [configuration: "implementation", dependency: "androidx.palette:palette:$supportLib"],
+            [configuration: "implementation", dependency: "androidx.cardview:cardview:$supportLib"],
+            [configuration: "implementation", dependency: "androidx.coordinatorlayout:coordinatorlayout:$supportLib"],
+//            [configuration: "implementation", dependency: "com.google.android.material:material:$supportMaterial"],
+            [configuration: "implementation", dependency: "androidx.constraintlayout:constraintlayout:$constraintLib"],
+
+//            [configuration: "implementation", dependency: "android.arch.persistence.room:runtime:$roomVersion"],
+//            [configuration: "kapt", dependency: "android.arch.persistence.room:compiler:$roomVersion"],
+//            [configuration: "androidTestImplementation", dependency: "android.arch.persistence.room:testing:$roomVersion"],
+            [configuration: "implementation", dependency: "android.arch.lifecycle:extensions:$archLifecycleVersion"],
+            [configuration: "kapt", dependency: "android.arch.lifecycle:compiler:$archLifecycleVersion"],
+            [configuration: "implementation", dependency: "android.arch.navigation:navigation-fragment-ktx:$navigation"],
+            [configuration: "implementation", dependency: "android.arch.navigation:navigation-ui-ktx:$navigation"],
+
+
+            [configuration: "implementation", dependency: "blue.aodev:material-values:$materialValues"],
+            [configuration: "implementation",  dependency: "com.airbnb.android:epoxy:$epoxyVersion", options: supportAnnotationExclude],
+            [configuration: "kapt", dependency: "com.airbnb.android:epoxy-processor:$epoxyVersion"],
+            [configuration: "implementation", dependency: "com.airbnb.android:lottie:$lottie"],
+
+
+            [configuration: "implementation", dependency:"io.reactivex.rxjava2:rxandroid:$rxAndroid"],
+            [configuration: "implementation", dependency:"io.reactivex.rxjava2:rxkotlin:$rxKotlin"],
+            [configuration: "implementation", dependency:"com.jakewharton.rxbinding3:rxbinding:$rxBinding"],
+            [configuration: "implementation", dependency:"com.jakewharton.rxbinding3:rxbinding-core:$rxBinding"],
+            [configuration: "implementation", dependency:"com.jakewharton.rxbinding3:rxbinding-material:$rxBinding"],
+            [configuration: "implementation", dependency:"com.jakewharton.rxbinding3:rxbinding-appcompat:$rxBinding"],
+
+
+            [configuration: "implementation", dependency:"com.squareup.retrofit2:retrofit:$retrofit"],
+            [configuration: "implementation", dependency:"com.squareup.retrofit2:adapter-rxjava2:$retrofit"],
+            [configuration: "implementation", dependency:"com.squareup.retrofit2:converter-moshi:$retrofit"],
+            [configuration: "implementation", dependency:"com.squareup.picasso:picasso:$picasso"],
+            [configuration: "implementation", dependency:"com.squareup.okhttp3:logging-interceptor:$okhttp"],
+
+
+            [configuration: "implementation", dependency:"com.squareup.moshi:moshi:$moshi"],
+            [configuration: "implementation", dependency:"com.squareup.moshi:moshi-kotlin:$moshi"],
+            [configuration: "kapt", dependency: "com.squareup.moshi:moshi-kotlin-codegen:$moshi"],
+
+            [configuration: "implementation", dependency: "org.koin:koin-android:$koin"],
+            [configuration: "implementation", dependency: "org.koin:koin-androidx-scope:$koin"],
+            [configuration: "implementation", dependency: "org.koin:koin-androidx-viewmodel:$koin"],
+
+
+            [configuration: "implementation", dependency: "org.koin:koin-test:$koin"],
+            [configuration: "androidTestImplementation", dependency: "junit:junit:$junit"],
+            [configuration: "testImplementation", dependency: "junit:junit:$junit"],
+            [configuration: "androidTestImplementation", dependency: "androidx.test:runner:$runner"],
+            [configuration: "androidTestImplementation", dependency: "androidx.test.espresso:espresso-core:$espresso", options: supportAnnotationExclude]
+
+
+    ]
+    //endregion
+}

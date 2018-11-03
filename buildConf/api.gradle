@@ -1,0 +1,9 @@
+ext {
+    //region API ROOT
+    typicode_debug = "\"https://jsonplaceholder.typicode.com/\""
+    typicode_release = "\"https://jsonplaceholder.typicode.com/\""
+    //endregion
+
+    //region API KEY
+    //endregion
+}
