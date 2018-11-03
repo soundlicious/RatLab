@@ -1,8 +1,6 @@
 package com.vlab.experiment.ratlabmvvm
 
 import com.vlab.experiment.ratlabmvvm.di.testApp
-import com.vlab.experiment.ratlabmvvm.ui.user.UserViewModel
-import junit.framework.Assert.assertNotNull
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
@@ -11,10 +9,21 @@ import org.koin.standalone.StandAloneContext.stopKoin
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
 import org.mockito.MockitoAnnotations
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.vlab.experiment.ratlabmvvm.ui.user.UserDetailsViewModel
+import junit.framework.TestCase.assertNotNull
+import org.junit.Rule
+import org.junit.rules.TestRule
+
+
 
 class UserDetailsVMTest: KoinTest {
 
-     private val userViewModel: UserViewModel by inject()
+     private val viewModel: UserDetailsViewModel by inject()
+
+    @get:Rule
+    var rule: TestRule = InstantTaskExecutorRule()
+
 
     @Before
     fun before() {
@@ -22,13 +31,13 @@ class UserDetailsVMTest: KoinTest {
         startKoin(testApp)
     }
 
-//    @After
-//    fun after() {
-//        stopKoin()
-//    }
+    @After
+    fun after() {
+        stopKoin()
+    }
 
     @Test
     fun should_inject_viewModel(){
-        assertNotNull(userViewModel)
+        assertNotNull(viewModel)
     }
 }

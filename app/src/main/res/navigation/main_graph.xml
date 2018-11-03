@@ -7,13 +7,13 @@
     <fragment android:id="@+id/userFragment"
               android:name="com.vlab.experiment.ratlabmvvm.ui.user.UserFragment"
               android:label="Users"
-              tools:layout="@layout/user_fragment">
+              tools:layout="@layout/fragment_recycler_view">
         <action android:id="@+id/action_userFragment_to_userDetailsFragment"
                 app:destination="@+id/userDetailsFragment"/>
     </fragment>
     <fragment android:id="@+id/userDetailsFragment"
               android:name="com.vlab.experiment.ratlabmvvm.ui.user.UserDetailsFragment"
-              android:label="User details" tools:layout="@layout/user_details_fragment">
+              android:label="User details" tools:layout="@layout/fragment_recycler_view">
         <argument android:name="userId" app:argType="string" android:defaultValue="1"/>
         <action android:id="@+id/action_userDetailsFragment_to_albumPhotosFragment"
                 app:destination="@id/albumPhotosFragment"/>

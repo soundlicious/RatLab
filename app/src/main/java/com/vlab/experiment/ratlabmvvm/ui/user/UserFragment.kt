@@ -4,6 +4,7 @@ package com.vlab.experiment.ratlabmvvm.ui.user
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
+import com.google.android.material.snackbar.Snackbar
 import com.vlab.experiment.ratlabmvvm.R
 import com.vlab.experiment.ratlabmvvm.UserActivity
 import com.vlab.experiment.ratlabmvvm.core.BaseFragment
@@ -13,7 +14,7 @@ import com.vlab.experiment.ratlabmvvm.views.loadingRow
 import com.vlab.experiment.ratlabmvvm.views.userItem
 import io.reactivex.disposables.Disposable
 import io.reactivex.functions.Consumer
-import kotlinx.android.synthetic.main.user_fragment.*
+import kotlinx.android.synthetic.main.fragment_recycler_view.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -25,6 +26,14 @@ class UserFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         subscribeUsers()
+        subscribeError()
+    }
+
+    private fun subscribeError() {
+        viewModel.error.observeForever { error ->
+            if (!error.isNullOrEmpty())
+                view?.let { Snackbar.make(it, error, Snackbar.LENGTH_LONG).setAction("OK", {}).show() }
+        }
     }
 
     override fun onResume() {
@@ -40,7 +49,7 @@ class UserFragment : BaseFragment() {
     private fun subscribeUsers() {
         viewModel.users.observe(this, Observer { userList ->
             recycler_view.withModels {
-                userList.forEach { user ->
+                userList?.forEach { user ->
                     userItem {
                         id(user.id)
                         name(String.format(getString(R.string.userName), user.name, user.username))
@@ -52,9 +61,9 @@ class UserFragment : BaseFragment() {
                     }
                 }
 
-                if (userList.isEmpty())
+                if (userList.isNullOrEmpty())
                     loadingRow {
-                        id("loadingRow${userList.size}")
+                        id("loadingRow")
                         onBind { _, _, _ -> viewModel.updateUserList() }
                     }
             }

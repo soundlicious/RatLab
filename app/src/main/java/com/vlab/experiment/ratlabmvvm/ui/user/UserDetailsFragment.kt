@@ -31,7 +31,7 @@ class UserDetailsFragment : BaseFragment() {
                     id("SectionAlbum")
                     title(getString(R.string.albumsTitle))
                 }
-                val albumItems: MutableList<AlbumItemCarouselModel_> = arrayListOf()
+                val albumItems: MutableList<AlbumItemCarouselModel_> = arrayListOf<AlbumItemCarouselModel_>()
                 val albums = pair.first
                 albums.forEach { album ->
                     albumItems.add(AlbumItemCarouselModel_()

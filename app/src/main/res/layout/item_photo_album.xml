@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_margin="@dimen/material_card_edge_margin"
+        android:layout_height="150dp" android:layout_width="150dp">
+
+        <io.armcha.elasticview.ElasticView
+                android:id="@+id/imageElasticView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp"
+                app:flexibility="7">
+
+                <ImageView
+                        android:id="@+id/imageView_photoAlbum"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"/>
+        </io.armcha.elasticview.ElasticView>
+
+</FrameLayout>

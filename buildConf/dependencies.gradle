@@ -22,6 +22,7 @@ ext {
     materialValues = '1.1.1'
     epoxyVersion = '3.0.0-rc1'
     lottie = "2.8.0"
+    elasticView = "0.1.0"
     //endregion
 
     //region Network
@@ -74,6 +75,7 @@ ext {
             [configuration: "implementation",  dependency: "com.airbnb.android:epoxy:$epoxyVersion", options: supportAnnotationExclude],
             [configuration: "kapt", dependency: "com.airbnb.android:epoxy-processor:$epoxyVersion"],
             [configuration: "implementation", dependency: "com.airbnb.android:lottie:$lottie"],
+            [configuration: "implementation", dependency: "com.github.armcha:ElasticView:$elasticView"],
 
 
             [configuration: "implementation", dependency:"io.reactivex.rxjava2:rxandroid:$rxAndroid"],
@@ -103,6 +105,7 @@ ext {
             [configuration: "implementation", dependency: "org.koin:koin-test:$koin"],
             [configuration: "androidTestImplementation", dependency: "junit:junit:$junit"],
             [configuration: "testImplementation", dependency: "junit:junit:$junit"],
+            [configuration: "testImplementation", dependency:"android.arch.core:core-testing:$archLifecycleVersion"],
             [configuration: "androidTestImplementation", dependency: "androidx.test:runner:$runner"],
             [configuration: "androidTestImplementation", dependency: "androidx.test.espresso:espresso-core:$espresso", options: supportAnnotationExclude]
 

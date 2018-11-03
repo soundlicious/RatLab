@@ -25,7 +25,7 @@ class UserViewModel(private val repository: Repository, private val scheduler: S
         query.value = null
     }
 
-    fun onListReceived(list: List<UserModel>) {
+    private fun onListReceived(list: List<UserModel>) {
         userList.value = list
         users.value = list.filter(this::filterUserList)
         dispose?.dispose()
