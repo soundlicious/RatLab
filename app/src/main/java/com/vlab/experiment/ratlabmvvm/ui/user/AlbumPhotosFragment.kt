@@ -34,7 +34,7 @@ class AlbumPhotosFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        rV_albumPhoto.layoutManager = GridLayoutManager(context, 2)
+        rV_albumPhoto.layoutManager = GridLayoutManager(context, calculateNoOfColumns(context))
         rV_albumPhoto.adapter = adapter
 
     }
@@ -52,6 +52,17 @@ class AlbumPhotosFragment : BaseFragment() {
                     else View.GONE
             adapter.updateList(photos)
         })
+    }
+
+    private fun calculateNoOfColumns(context: Context?): Int {
+        var columnCount = 2
+        if (context != null) {
+            val displayMetrics = context.resources.displayMetrics
+            val dpWidth = displayMetrics.widthPixels / displayMetrics.density
+            val scalingFactor = 200
+            columnCount = (dpWidth / scalingFactor).toInt()
+        }
+        return if (columnCount >= 2) columnCount else 2
     }
 
     private class PhotoGridAdapter : RecyclerView.Adapter<PhotoGridAdapter.ViewHolder>() {

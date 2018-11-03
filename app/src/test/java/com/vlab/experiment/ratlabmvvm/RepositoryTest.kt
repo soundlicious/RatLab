@@ -14,7 +14,6 @@ import org.koin.standalone.StandAloneContext
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
 import org.mockito.MockitoAnnotations
-import timber.log.Timber
 
 class RepositoryTest:KoinTest{
 
@@ -42,7 +41,7 @@ class RepositoryTest:KoinTest{
 
     @Test
     fun should_receive_users(){
-        var userList = repository.getUsers().blockingGet()
+        val userList = repository.getUsers().blockingGet()
         assertNotNull(userList)
     }
 }
