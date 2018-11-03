@@ -16,17 +16,19 @@ import com.vlab.experiment.ratlabmvvm.core.BaseFragment
 import com.vlab.experiment.ratlabmvvm.data.models.typicode.PhotoModel
 import kotlinx.android.synthetic.main.album_photos_fragment.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import timber.log.Timber
 
 class AlbumPhotosFragment : BaseFragment() {
 
     private val viewModel: UserDetailsViewModel by sharedViewModel()
     private val adapter: PhotoGridAdapter = PhotoGridAdapter()
 
-
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         viewModel.setAlbumId(AlbumPhotosFragmentArgs.fromBundle(arguments).albumId)
         (activity as UserActivity).setUpNavController(this)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.album_photos_fragment, container, false)
     }
 
@@ -34,6 +36,11 @@ class AlbumPhotosFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         rV_albumPhoto.layoutManager = GridLayoutManager(context, 2)
         rV_albumPhoto.adapter = adapter
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         viewModel.updatePhotos()
         subscribePhotos()
     }

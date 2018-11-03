@@ -9,7 +9,7 @@
               android:label="Users"
               tools:layout="@layout/fragment_recycler_view">
         <action android:id="@+id/action_userFragment_to_userDetailsFragment"
-                app:destination="@+id/userDetailsFragment"/>
+                app:destination="@+id/userDetailsFragment"/><deepLink app:uri="jsonplaceholder.typicode.com/users" />
     </fragment>
     <fragment android:id="@+id/userDetailsFragment"
               android:name="com.vlab.experiment.ratlabmvvm.ui.user.UserDetailsFragment"
@@ -18,16 +18,22 @@
         <action android:id="@+id/action_userDetailsFragment_to_albumPhotosFragment"
                 app:destination="@id/albumPhotosFragment"/>
         <action android:id="@+id/action_userDetailsFragment_to_postCommentsFragment"
-                app:destination="@id/postCommentsFragment"/>
+                app:destination="@id/postCommentsFragment"/><deepLink app:uri="jsonplaceholder.typicode.com/users/{userId}"/>
     </fragment>
     <fragment android:id="@+id/albumPhotosFragment"
               android:name="com.vlab.experiment.ratlabmvvm.ui.user.AlbumPhotosFragment"
               android:label="Album details">
         <argument android:name="albumId" app:argType="string" android:defaultValue="1"/>
+        <deepLink app:uri="jsonplaceholder.typicode.com/users/{albumId}/photos"/>
     </fragment>
     <fragment android:id="@+id/postCommentsFragment"
               android:name="com.vlab.experiment.ratlabmvvm.ui.user.PostCommentsFragment"
               android:label="Comments">
         <argument android:name="postId" app:argType="string" android:defaultValue="1"/>
+        <deepLink app:uri="jsonplaceholder.typicode.com/posts/{postId}/comments"/>
     </fragment>
+    <fragment android:id="@+id/errorFragment" android:name="com.vlab.experiment.ratlabmvvm.ui.user.ErrorFragment"
+              android:label="ErrorFragment"/>
+    <action android:id="@+id/action_global_errorFragment" app:destination="@id/errorFragment"/>
+    <argument android:name="error" app:argType="reference"/>
 </navigation>

@@ -59,7 +59,6 @@ ext {
             [configuration: "implementation", dependency: "androidx.palette:palette:$supportLib"],
             [configuration: "implementation", dependency: "androidx.cardview:cardview:$supportLib"],
             [configuration: "implementation", dependency: "androidx.coordinatorlayout:coordinatorlayout:$supportLib"],
-//            [configuration: "implementation", dependency: "com.google.android.material:material:$supportMaterial"],
             [configuration: "implementation", dependency: "androidx.constraintlayout:constraintlayout:$constraintLib"],
 
 //            [configuration: "implementation", dependency: "android.arch.persistence.room:runtime:$roomVersion"],
@@ -108,8 +107,6 @@ ext {
             [configuration: "testImplementation", dependency:"android.arch.core:core-testing:$archLifecycleVersion"],
             [configuration: "androidTestImplementation", dependency: "androidx.test:runner:$runner"],
             [configuration: "androidTestImplementation", dependency: "androidx.test.espresso:espresso-core:$espresso", options: supportAnnotationExclude]
-
-
     ]
     //endregion
 }

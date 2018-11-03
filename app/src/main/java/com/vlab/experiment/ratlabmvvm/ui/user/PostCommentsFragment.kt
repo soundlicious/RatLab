@@ -1,6 +1,7 @@
 package com.vlab.experiment.ratlabmvvm.ui.user
 
 import android.os.Bundle
+import android.view.View
 import androidx.lifecycle.Observer
 import com.vlab.experiment.ratlabmvvm.core.BaseFragment
 import com.vlab.experiment.ratlabmvvm.core.withModels
@@ -19,10 +20,12 @@ class PostCommentsFragment : BaseFragment(){
         viewModel.setPostId(postId)
     }
 
-    override fun onViewStateRestored(savedInstanceState: Bundle?) {
-        super.onViewStateRestored(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         observeComments()
+
     }
+
     private fun observeComments() {
         viewModel.comments.observe(this, Observer{comments ->
             recycler_view.withModels {

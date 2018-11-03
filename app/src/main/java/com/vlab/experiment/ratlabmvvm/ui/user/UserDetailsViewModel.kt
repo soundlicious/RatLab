@@ -44,6 +44,7 @@ class UserDetailsViewModel(private val repository: Repository, private val sched
     }
 
     fun setAlbumId(id: String) {
+        Timber.i("albumId is : $id")
         val oldId = albumId.value
         if (oldId.isNullOrEmpty() || oldId != id) {
             albumId.value = id
@@ -75,7 +76,7 @@ class UserDetailsViewModel(private val repository: Repository, private val sched
     }
 
     fun updatePhotos() {
-        val id = userId.value
+        val id = albumId.value
         if (!id.isNullOrBlank()) {
             dispose = repository.getUserPhotosAlbum(id)
                 .with(schedulers)
