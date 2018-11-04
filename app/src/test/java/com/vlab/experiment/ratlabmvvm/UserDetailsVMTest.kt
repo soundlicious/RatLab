@@ -10,6 +10,8 @@ import org.koin.standalone.inject
 import org.koin.test.KoinTest
 import org.mockito.MockitoAnnotations
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.vlab.experiment.ratlabmvvm.di.remoteDataSourceModule
+import com.vlab.experiment.ratlabmvvm.di.repositoryModyle
 import com.vlab.experiment.ratlabmvvm.ui.user.UserDetailsViewModel
 import junit.framework.TestCase.assertNotNull
 import org.junit.Rule
@@ -28,7 +30,7 @@ class UserDetailsVMTest: KoinTest {
     @Before
     fun before() {
         MockitoAnnotations.initMocks(this)
-        startKoin(testApp)
+        startKoin(testApp + repositoryModyle + remoteDataSourceModule)
     }
 
     @After

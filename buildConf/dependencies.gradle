@@ -4,11 +4,11 @@ ext {
     supportLib = '1.0.0'
     constraintLib = '1.1.1'
     supportMaterial = '1.0.0-rc01'
-    supportAnnotationExclude = {exclude group: 'androidx.annotation', module: 'annotation'}
+    supportAnnotationExclude = { exclude group: 'androidx.annotation', module: 'annotation' }
     //endregion
 
     //region ArchComponent
-    roomVersion = '1.1.1'
+    roomVersion = '2.1.0-alpha01'
     archLifecycleVersion = '1.1.1'
     //endregion
 
@@ -61,9 +61,9 @@ ext {
             [configuration: "implementation", dependency: "androidx.coordinatorlayout:coordinatorlayout:$supportLib"],
             [configuration: "implementation", dependency: "androidx.constraintlayout:constraintlayout:$constraintLib"],
 
-//            [configuration: "implementation", dependency: "android.arch.persistence.room:runtime:$roomVersion"],
-//            [configuration: "kapt", dependency: "android.arch.persistence.room:compiler:$roomVersion"],
-//            [configuration: "androidTestImplementation", dependency: "android.arch.persistence.room:testing:$roomVersion"],
+            [configuration: "implementation", dependency: "androidx.room:room-runtime:$roomVersion"],
+            [configuration: "implementation", dependency: "androidx.room:room-rxjava2:$roomVersion"],
+            [configuration: "kapt", dependency: "androidx.room:room-compiler:$roomVersion"],
             [configuration: "implementation", dependency: "android.arch.lifecycle:extensions:$archLifecycleVersion"],
             [configuration: "kapt", dependency: "android.arch.lifecycle:compiler:$archLifecycleVersion"],
             [configuration: "implementation", dependency: "android.arch.navigation:navigation-fragment-ktx:$navigation"],
@@ -71,29 +71,29 @@ ext {
 
 
             [configuration: "implementation", dependency: "blue.aodev:material-values:$materialValues"],
-            [configuration: "implementation",  dependency: "com.airbnb.android:epoxy:$epoxyVersion", options: supportAnnotationExclude],
+            [configuration: "implementation", dependency: "com.airbnb.android:epoxy:$epoxyVersion", options: supportAnnotationExclude],
             [configuration: "kapt", dependency: "com.airbnb.android:epoxy-processor:$epoxyVersion"],
             [configuration: "implementation", dependency: "com.airbnb.android:lottie:$lottie"],
             [configuration: "implementation", dependency: "com.github.armcha:ElasticView:$elasticView"],
 
 
-            [configuration: "implementation", dependency:"io.reactivex.rxjava2:rxandroid:$rxAndroid"],
-            [configuration: "implementation", dependency:"io.reactivex.rxjava2:rxkotlin:$rxKotlin"],
-            [configuration: "implementation", dependency:"com.jakewharton.rxbinding3:rxbinding:$rxBinding"],
-            [configuration: "implementation", dependency:"com.jakewharton.rxbinding3:rxbinding-core:$rxBinding"],
-            [configuration: "implementation", dependency:"com.jakewharton.rxbinding3:rxbinding-material:$rxBinding"],
-            [configuration: "implementation", dependency:"com.jakewharton.rxbinding3:rxbinding-appcompat:$rxBinding"],
+            [configuration: "implementation", dependency: "io.reactivex.rxjava2:rxandroid:$rxAndroid"],
+            [configuration: "implementation", dependency: "io.reactivex.rxjava2:rxkotlin:$rxKotlin"],
+            [configuration: "implementation", dependency: "com.jakewharton.rxbinding3:rxbinding:$rxBinding"],
+            [configuration: "implementation", dependency: "com.jakewharton.rxbinding3:rxbinding-core:$rxBinding"],
+            [configuration: "implementation", dependency: "com.jakewharton.rxbinding3:rxbinding-material:$rxBinding"],
+            [configuration: "implementation", dependency: "com.jakewharton.rxbinding3:rxbinding-appcompat:$rxBinding"],
 
 
-            [configuration: "implementation", dependency:"com.squareup.retrofit2:retrofit:$retrofit"],
-            [configuration: "implementation", dependency:"com.squareup.retrofit2:adapter-rxjava2:$retrofit"],
-            [configuration: "implementation", dependency:"com.squareup.retrofit2:converter-moshi:$retrofit"],
-            [configuration: "implementation", dependency:"com.squareup.picasso:picasso:$picasso"],
-            [configuration: "implementation", dependency:"com.squareup.okhttp3:logging-interceptor:$okhttp"],
+            [configuration: "implementation", dependency: "com.squareup.retrofit2:retrofit:$retrofit"],
+            [configuration: "implementation", dependency: "com.squareup.retrofit2:adapter-rxjava2:$retrofit"],
+            [configuration: "implementation", dependency: "com.squareup.retrofit2:converter-moshi:$retrofit"],
+            [configuration: "implementation", dependency: "com.squareup.picasso:picasso:$picasso"],
+            [configuration: "implementation", dependency: "com.squareup.okhttp3:logging-interceptor:$okhttp"],
 
 
-            [configuration: "implementation", dependency:"com.squareup.moshi:moshi:$moshi"],
-            [configuration: "implementation", dependency:"com.squareup.moshi:moshi-kotlin:$moshi"],
+            [configuration: "implementation", dependency: "com.squareup.moshi:moshi:$moshi"],
+            [configuration: "implementation", dependency: "com.squareup.moshi:moshi-kotlin:$moshi"],
             [configuration: "kapt", dependency: "com.squareup.moshi:moshi-kotlin-codegen:$moshi"],
 
             [configuration: "implementation", dependency: "org.koin:koin-android:$koin"],
@@ -104,7 +104,8 @@ ext {
             [configuration: "implementation", dependency: "org.koin:koin-test:$koin"],
             [configuration: "androidTestImplementation", dependency: "junit:junit:$junit"],
             [configuration: "testImplementation", dependency: "junit:junit:$junit"],
-            [configuration: "testImplementation", dependency:"android.arch.core:core-testing:$archLifecycleVersion"],
+            [configuration: "androidTestImplementation", dependency: "androidx.room:room-testing:$roomVersion"],
+            [configuration: "testImplementation", dependency: "android.arch.core:core-testing:$archLifecycleVersion"],
             [configuration: "androidTestImplementation", dependency: "androidx.test:runner:$runner"],
             [configuration: "androidTestImplementation", dependency: "androidx.test.espresso:espresso-core:$espresso", options: supportAnnotationExclude]
     ]

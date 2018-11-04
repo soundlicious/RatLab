@@ -8,4 +8,4 @@ val testRxModule = module {
     single { TestSchedulerProvider() as SchedulerProvider }
 }
 
-val testApp = listOf(appModule, testRxModule, remoteDataSourceModule)
+val testApp = listOf(appModule, testRxModule, localDataSourceModule)

@@ -3,6 +3,7 @@ package com.vlab.experiment.ratlabmvvm.ui.user
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.vlab.experiment.ratlabmvvm.data.Repository
+import com.vlab.experiment.ratlabmvvm.data.RepositoryImpl
 import com.vlab.experiment.ratlabmvvm.data.models.typicode.AlbumModel
 import com.vlab.experiment.ratlabmvvm.data.models.typicode.CommentModel
 import com.vlab.experiment.ratlabmvvm.data.models.typicode.PhotoModel

@@ -2,8 +2,10 @@ package com.vlab.experiment.ratlabmvvm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.vlab.experiment.ratlabmvvm.data.Repository
+import com.vlab.experiment.ratlabmvvm.data.RepositoryImpl
+import com.vlab.experiment.ratlabmvvm.di.remoteDataSourceModule
+import com.vlab.experiment.ratlabmvvm.di.repositoryModyle
 import com.vlab.experiment.ratlabmvvm.di.testApp
-import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import org.junit.After
 import org.junit.Before
@@ -15,18 +17,17 @@ import org.koin.standalone.inject
 import org.koin.test.KoinTest
 import org.mockito.MockitoAnnotations
 
-class RepositoryTest:KoinTest{
+class RepositoryImplTest:KoinTest{
 
-    private val repository: Repository by inject()
+    private val repositoryImpl: Repository by inject()
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
 
-
     @Before
     fun before() {
         MockitoAnnotations.initMocks(this)
-        StandAloneContext.startKoin(testApp)
+        StandAloneContext.startKoin(testApp + repositoryModyle + remoteDataSourceModule)
     }
 
     @After
@@ -36,12 +37,12 @@ class RepositoryTest:KoinTest{
 
     @Test
     fun should_inject_repository(){
-        assertNotNull(repository)
+        assertNotNull(repositoryImpl)
     }
 
     @Test
     fun should_receive_users(){
-        val userList = repository.getUsers().blockingGet()
+        val userList = repositoryImpl.getUsers().blockingGet()
         assertNotNull(userList)
     }
 }

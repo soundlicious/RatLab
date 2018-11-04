@@ -6,6 +6,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.Observer
 import com.vlab.experiment.ratlabmvvm.data.models.typicode.UserModel
+import com.vlab.experiment.ratlabmvvm.di.remoteDataSourceModule
+import com.vlab.experiment.ratlabmvvm.di.repositoryModyle
 import com.vlab.experiment.ratlabmvvm.di.testApp
 import com.vlab.experiment.ratlabmvvm.ui.user.UserViewModel
 import org.junit.*
@@ -30,7 +32,7 @@ class UserVMTest: KoinTest{
     @Before
     fun before() {
         MockitoAnnotations.initMocks(this)
-        StandAloneContext.startKoin(testApp)
+        StandAloneContext.startKoin(testApp + repositoryModyle + remoteDataSourceModule)
     }
 
     @After
