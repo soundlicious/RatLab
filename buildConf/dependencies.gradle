@@ -1,8 +1,8 @@
 ext {
 
     //region Support
-    supportLib = '1.0.0'
-    constraintLib = '1.1.1'
+    supportLib = '1.0.0-alpha1'
+    constraintLib = '1.1.3'
     supportMaterial = '1.0.0-rc01'
     supportAnnotationExclude = { exclude group: 'androidx.annotation', module: 'annotation' }
     //endregion
@@ -10,6 +10,7 @@ ext {
     //region ArchComponent
     roomVersion = '2.1.0-alpha01'
     archLifecycleVersion = '1.1.1'
+    xarchLifecycleVersion = '2.0.0-alpha1'
     //endregion
 
     //region Rx
@@ -48,6 +49,7 @@ ext {
     //endregion
 
     //region dependency List
+
     dependencies = [
             [configuration: "implementation", "dependency": "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin"],
 
@@ -64,8 +66,8 @@ ext {
             [configuration: "implementation", dependency: "androidx.room:room-runtime:$roomVersion"],
             [configuration: "implementation", dependency: "androidx.room:room-rxjava2:$roomVersion"],
             [configuration: "kapt", dependency: "androidx.room:room-compiler:$roomVersion"],
-            [configuration: "implementation", dependency: "android.arch.lifecycle:extensions:$archLifecycleVersion"],
-            [configuration: "kapt", dependency: "android.arch.lifecycle:compiler:$archLifecycleVersion"],
+            [configuration: "implementation", dependency: "androidx.lifecycle:lifecycle-extensions:$xarchLifecycleVersion"],
+            [configuration: "kapt", dependency: "androidx.lifecycle:lifecycle-compiler:$xarchLifecycleVersion"],
             [configuration: "implementation", dependency: "android.arch.navigation:navigation-fragment-ktx:$navigation"],
             [configuration: "implementation", dependency: "android.arch.navigation:navigation-ui-ktx:$navigation"],
 
