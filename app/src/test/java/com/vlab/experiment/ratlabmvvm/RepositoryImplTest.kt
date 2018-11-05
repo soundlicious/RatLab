@@ -1,11 +1,13 @@
 package com.vlab.experiment.ratlabmvvm
 
+import android.util.Log
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.vlab.experiment.ratlabmvvm.data.Repository
 import com.vlab.experiment.ratlabmvvm.data.RepositoryImpl
 import com.vlab.experiment.ratlabmvvm.di.remoteDataSourceModule
 import com.vlab.experiment.ratlabmvvm.di.repositoryModyle
 import com.vlab.experiment.ratlabmvvm.di.testApp
+import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import org.junit.After
 import org.junit.Before
@@ -43,6 +45,27 @@ class RepositoryImplTest:KoinTest{
     @Test
     fun should_receive_users(){
         val userList = repositoryImpl.getUsers().blockingGet()
+        System.out.println("userList size : " + userList.size)
         assertNotNull(userList)
+    }
+
+    @Test
+    fun should_receive_album_photos_from_same_album(){
+        for (i in 1..10) {
+            var list = repositoryImpl.getUserPhotosAlbum(i.toString()).blockingGet()
+            list.forEach {
+                assertEquals(i.toString(), it.albumId)
+            }
+        }
+    }
+
+    @Test
+    fun should_receive_user_albums_from_same_user(){
+        for (i in 1..10) {
+            var list = repositoryImpl.getUserAlbums(i.toString()).blockingGet()
+            list.forEach {
+                assertEquals(i.toString(), it.userId)
+            }
+        }
     }
 }

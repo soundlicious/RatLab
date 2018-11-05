@@ -22,7 +22,7 @@ interface TypicodeService {
     fun fetchUserAlbums(@Path("userId") userId: String): Single<List<AlbumModel>>
 
     @Headers("Accept: application/json")
-    @GET("/users/{albumId}/photos")
+    @GET("/albums/{albumId}/photos")
     fun fetchUserPhotos(@Path("albumId")albumId: String): Single<List<PhotoModel>>
 
     @Headers("Accept: application/json")
