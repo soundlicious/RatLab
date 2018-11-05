@@ -32,7 +32,7 @@ class UserVMTest: KoinTest{
     @Before
     fun before() {
         MockitoAnnotations.initMocks(this)
-        StandAloneContext.startKoin(testApp + repositoryModyle + remoteDataSourceModule)
+        StandAloneContext.startKoin(testApp)
     }
 
     @After

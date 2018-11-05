@@ -30,7 +30,7 @@ class UserDetailsVMTest: KoinTest {
     @Before
     fun before() {
         MockitoAnnotations.initMocks(this)
-        startKoin(testApp + repositoryModyle + remoteDataSourceModule)
+        startKoin(testApp)
     }
 
     @After
