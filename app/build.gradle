@@ -27,6 +27,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        final String SHARED_TEST_UTILS = 'src/sharedTestUtils/java'
+        test {
+            java.srcDirs += SHARED_TEST_UTILS
+        }
+        androidTest{
+            java.srcDirs += SHARED_TEST_UTILS
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

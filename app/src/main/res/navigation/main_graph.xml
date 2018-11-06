@@ -24,7 +24,7 @@
               android:name="com.vlab.experiment.ratlabmvvm.ui.user.AlbumPhotosFragment"
               android:label="Album details">
         <argument android:name="albumId" app:argType="string" android:defaultValue="1"/>
-        <deepLink app:uri="jsonplaceholder.typicode.com/users/{albumId}/photos"/>
+        <deepLink app:uri="jsonplaceholder.typicode.com/albums/{albumId}/photos"/>
     </fragment>
     <fragment android:id="@+id/postCommentsFragment"
               android:name="com.vlab.experiment.ratlabmvvm.ui.user.PostCommentsFragment"
