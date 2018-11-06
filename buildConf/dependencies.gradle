@@ -108,6 +108,7 @@ ext {
             [configuration: "testImplementation", dependency: "junit:junit:$junit"],
             [configuration: "androidTestImplementation", dependency: "androidx.room:room-testing:$roomVersion"],
             [configuration: "testImplementation", dependency: "android.arch.core:core-testing:$archLifecycleVersion"],
+            [configuration: "androidTestImplementation", dependency: "android.arch.core:core-testing:$archLifecycleVersion"],
             [configuration: "androidTestImplementation", dependency: "androidx.test:runner:$runner"],
             [configuration: "androidTestImplementation", dependency: "androidx.test.espresso:espresso-core:$espresso", options: supportAnnotationExclude]
     ]

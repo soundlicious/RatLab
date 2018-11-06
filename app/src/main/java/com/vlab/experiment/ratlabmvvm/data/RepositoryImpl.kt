@@ -6,7 +6,7 @@ import com.vlab.experiment.ratlabmvvm.data.network.TypicodeService
 import io.reactivex.Single
 import timber.log.Timber
 
-class RepositoryImpl(private val service: TypicodeService, private val db: TypicodeDao) : Repository{
+class RepositoryImpl(private var service: TypicodeService, private val db: TypicodeDao) : Repository{
     override fun getUsers() : Single<List<UserModel>> = db.getUsers()
         .doOnSubscribe {Timber.i("Subscrime to local")}
         .filter { list -> !list.isEmpty() }

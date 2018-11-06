@@ -1,5 +1,6 @@
-package com.vlab.experiment.ratlabmvvm.data
+package com.vlab.experiment.ratlabmvvm.di
 
+import com.vlab.experiment.ratlabmvvm.data.Repository
 import com.vlab.experiment.ratlabmvvm.data.models.typicode.*
 import com.vlab.experiment.ratlabmvvm.data.network.TypicodeService
 import io.reactivex.Single

@@ -9,6 +9,7 @@ import com.vlab.experiment.ratlabmvvm.data.models.typicode.UserModel
 import com.vlab.experiment.ratlabmvvm.di.remoteDataSourceModule
 import com.vlab.experiment.ratlabmvvm.di.repositoryModyle
 import com.vlab.experiment.ratlabmvvm.di.testApp
+import com.vlab.experiment.ratlabmvvm.di.testRepositoryModule
 import com.vlab.experiment.ratlabmvvm.ui.user.UserViewModel
 import org.junit.*
 import org.junit.rules.TestRule
@@ -20,8 +21,6 @@ import org.mockito.Mockito.mock
 import org.mockito.MockitoAnnotations
 import java.util.*
 
-inline fun <reified T> lambdaMock(): T = mock(T::class.java)
-
 class UserVMTest: KoinTest{
     private val viewModel: UserViewModel by inject()
 
@@ -32,7 +31,7 @@ class UserVMTest: KoinTest{
     @Before
     fun before() {
         MockitoAnnotations.initMocks(this)
-        StandAloneContext.startKoin(testApp)
+        StandAloneContext.startKoin(testApp + testRepositoryModule + remoteDataSourceModule)
     }
 
     @After

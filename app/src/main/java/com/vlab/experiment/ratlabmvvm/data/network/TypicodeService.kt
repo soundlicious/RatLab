@@ -31,5 +31,5 @@ interface TypicodeService {
 
     @Headers("Accept: application/json")
     @POST("/posts/{postId}/comments")
-    fun sendPostComments(@Path("postId") postId: String) : Single<List<CommentModel>>
+    fun sendPostComment(@Path("postId") postId: String) : Single<CommentModel>
 }

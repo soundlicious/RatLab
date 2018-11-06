@@ -2,7 +2,9 @@ package com.vlab.experiment.ratlabmvvm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.vlab.experiment.ratlabmvvm.data.Repository
+import com.vlab.experiment.ratlabmvvm.di.remoteDataSourceModule
 import com.vlab.experiment.ratlabmvvm.di.testApp
+import com.vlab.experiment.ratlabmvvm.di.testRepositoryModule
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
 import org.junit.After
@@ -25,7 +27,7 @@ class RepositoryImplTest:KoinTest{
     @Before
     fun before() {
         MockitoAnnotations.initMocks(this)
-        StandAloneContext.startKoin(testApp)
+        StandAloneContext.startKoin(testApp + testRepositoryModule + remoteDataSourceModule)
     }
 
     @After
@@ -86,7 +88,7 @@ class RepositoryImplTest:KoinTest{
     }
 
     @Test
-    fun `should be empty`(){
+    fun `received list from routes should be empty`(){
         var char : Char = 'a'
         while (char != 'g'){
             var list: List<Any> = repositoryImpl.getPostComment(char.toString()).blockingGet()
