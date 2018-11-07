@@ -12,15 +12,20 @@ import org.koin.standalone.StandAloneContext
 import org.koin.standalone.StandAloneContext.stopKoin
 import org.koin.standalone.inject
 import org.koin.test.KoinTest
+import org.mockito.junit.MockitoJUnit
+import org.mockito.junit.MockitoRule
+import org.junit.Rule
+
+
 
 @RunWith(AndroidJUnit4::class)
 class RepositoryAndroidTest : KoinTest{
+
     private val repositoryImpl: Repository by inject()
     private val dao: TypicodeDao by inject()
 
     @Before
     fun before() {
-        stopKoin()
         StandAloneContext.startKoin(testApp + androidRepositoryTestModule + testLocalDB)
     }
 

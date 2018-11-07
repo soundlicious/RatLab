@@ -14,7 +14,7 @@ android {
         buildToolsVersion rootProject.ext.buildToolsVersion
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.vlab.experiment.ratlabmvvm.MockTestRunner"
         vectorDrawables.useSupportLibrary = true
     }
     buildTypes {
