@@ -5,7 +5,6 @@ import io.reactivex.Maybe
 
 import androidx.annotation.WorkerThread
 import androidx.room.*
-import io.reactivex.Single
 
 
 @Dao
