@@ -5,6 +5,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.Observer
+import androidx.test.filters.SmallTest
 import com.vlab.experiment.ratlabmvvm.data.models.typicode.UserModel
 import com.vlab.experiment.ratlabmvvm.di.remoteDataSourceModule
 import com.vlab.experiment.ratlabmvvm.di.repositoryModyle
@@ -40,18 +41,8 @@ class UserVMTest: KoinTest{
     }
 
     @Test
+    @SmallTest
     fun should_inject_viewModel(){
         Assert.assertNotNull(viewModel)
     }
-//
-//    @Test
-//    fun `when users are requested, should call client and return response`(){
-//        viewModel.updateUserList()
-//
-//        val mockLifeCycleOwner = mock(LifecycleOwner::class.java)
-//        val lifecycle = LifecycleRegistry(mockLifeCycleOwner)
-//        lifecycle.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
-//
-//
-//    }
 }

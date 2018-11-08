@@ -1,6 +1,7 @@
 package com.vlab.experiment.ratlabmvvm
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.test.filters.SmallTest
 import com.vlab.experiment.ratlabmvvm.data.Repository
 import com.vlab.experiment.ratlabmvvm.di.remoteDataSourceModule
 import com.vlab.experiment.ratlabmvvm.di.testApp
@@ -36,11 +37,13 @@ class RepositoryImplTest:KoinTest{
     }
 
     @Test
+    @SmallTest
     fun should_inject_repository(){
         assertNotNull(repositoryImpl)
     }
 
     @Test
+    @SmallTest
     fun should_receive_users(){
         val userList = repositoryImpl.getUsers().blockingGet()
         System.out.println("userList size : " + userList.size)
@@ -48,6 +51,7 @@ class RepositoryImplTest:KoinTest{
     }
 
     @Test
+    @SmallTest
     fun should_receive_album_photos_from_same_album(){
         for (i in 1..10) {
             val list = repositoryImpl.getUserPhotosAlbum(i.toString()).blockingGet()
@@ -58,6 +62,7 @@ class RepositoryImplTest:KoinTest{
     }
 
     @Test
+    @SmallTest
     fun should_receive_user_albums_from_same_user(){
         for (i in 1..10) {
             val list = repositoryImpl.getUserAlbums(i.toString()).blockingGet()
@@ -68,6 +73,7 @@ class RepositoryImplTest:KoinTest{
     }
 
     @Test
+    @SmallTest
     fun `should receive user post from same user`(){
         for (i in 1..10) {
             val list = repositoryImpl.getUserPosts(i.toString()).blockingGet()
@@ -78,6 +84,7 @@ class RepositoryImplTest:KoinTest{
     }
 
     @Test
+    @SmallTest
     fun `should receive post comment from same post`(){
         for (i in 1..10) {
             val list = repositoryImpl.getPostComment(i.toString()).blockingGet()
@@ -88,7 +95,8 @@ class RepositoryImplTest:KoinTest{
     }
 
     @Test
-    fun `received list from routes should be empty`(){
+    @SmallTest
+    fun `received list from all routes should be empty`(){
         var char : Char = 'a'
         while (char != 'g'){
             var list: List<Any> = repositoryImpl.getPostComment(char.toString()).blockingGet()

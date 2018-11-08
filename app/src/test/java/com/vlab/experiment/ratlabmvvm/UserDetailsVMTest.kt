@@ -10,6 +10,7 @@ import org.koin.standalone.inject
 import org.koin.test.KoinTest
 import org.mockito.MockitoAnnotations
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.test.filters.SmallTest
 import com.vlab.experiment.ratlabmvvm.di.remoteDataSourceModule
 import com.vlab.experiment.ratlabmvvm.di.repositoryModyle
 import com.vlab.experiment.ratlabmvvm.di.testRepositoryModule
@@ -40,6 +41,7 @@ class UserDetailsVMTest: KoinTest {
     }
 
     @Test
+    @SmallTest
     fun should_inject_viewModel(){
         assertNotNull(viewModel)
     }
